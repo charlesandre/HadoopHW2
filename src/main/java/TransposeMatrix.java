@@ -1,8 +1,5 @@
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.StringTokenizer;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FSDataOutputStream;
@@ -14,8 +11,7 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 public class TransposeMatrix {
-
-
+    
 
     //Source for the output in csv : http://johnnyprogrammer.blogspot.fr/2012/01/custom-file-output-in-hadoop.html
 
@@ -86,10 +82,8 @@ public class TransposeMatrix {
         //REDUCER
         job.setReducerClass(TransposeMatrixReducer.class);
 
-
         //OUTPUT
         job.setMapOutputKeyClass(IntWritable.class);
-
         job.setOutputKeyClass(IntWritable.class);
         job.setOutputValueClass(Text.class);
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
